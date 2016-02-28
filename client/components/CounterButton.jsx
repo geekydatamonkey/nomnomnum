@@ -1,7 +1,26 @@
 import React from 'react';
-import { ReactMeteorData } from 'meteor/react-meteor-data';
 
 export default React.createClass({
-  mixins: [ReactMeteorData],
-  render() {},
+  propTypes: {
+    counter: React.PropTypes.object.isRequired,
+  },
+
+  handleClick() {
+    console.log(`clicked ${this.props.counter.name}`);
+  },
+
+  render() {
+    const {
+      name,
+      currentCount,
+      recommendedCount,
+    } = this.props.counter;
+
+    return (
+      <div className="counter-button" onClick={ this.handleClick }>
+        <h3>{ name }</h3>
+        <p>{currentCount} / {recommendedCount}</p>
+      </div>
+    );
+  },
 });

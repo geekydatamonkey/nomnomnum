@@ -1,5 +1,21 @@
 import React from 'react';
 import { ReactMeteorData } from 'meteor/react-meteor-data';
+import CounterButton from './CounterButton.jsx';
+
+const counters = [
+  {
+    _id: 1,
+    name: 'Veggies',
+    currentCount: 0,
+    recommendedCount: 10,
+  },
+  {
+    _id: 2,
+    name: 'Fruits',
+    currentCount: 0,
+    recommendedCount: 10,
+  },
+];
 
 const App = React.createClass({
   mixins: [ReactMeteorData],
@@ -8,12 +24,17 @@ const App = React.createClass({
 
   // Loads items and puts them on this.data.tasks
   getMeteorData() {
-    return {
-      veggies: {
-        currentCount: 0,
-        recommendedCount: 5,
-      },
-    };
+    return { counters: this.getCounters() };
+  },
+
+  getCounters() {
+    return counters;
+  },
+
+  renderCounters() {
+    return this.data.counters.map((counter) => (
+      <CounterButton key={counter._id} counter={counter} />
+    ));
   },
 
   render() {
@@ -24,12 +45,7 @@ const App = React.createClass({
         </header>
         <main>
           <h2>Food Tracker</h2>
-          <ul>
-            <li>
-              <h3>Veggies</h3>
-              <p>{ this.data.veggies.currentCount } / { this.data.veggies.recommendedCount }</p>
-            </li>
-          </ul>
+          { this.renderCounters() }
         </main>
         <footer>
         </footer>
