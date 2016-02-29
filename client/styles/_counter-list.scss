@@ -29,9 +29,9 @@
   }
   .actions {
     position: absolute;
-    bottom: 0.5rem;
-    left: 50%;
-    transform: translate(-50%);
+    top: 0.5rem;
+    right: 0.5rem;
+    //transform: translate(-50%);
     .btn {
       font-size: 0.75em;
       padding: 0.25em 0.5em;
@@ -57,12 +57,4 @@
 }
 .counter-button__sugar {
   background: $color-sugar;
-}
-
-.btn {
-  display: inline-block;
-  text-align: center;
-  padding: 0.25em 0.5em;
-  text-transform: uppercase;
-  border: 0.1em solid $black;
 }

@@ -53,7 +53,7 @@ export default React.createClass({
           <span className="recommended-count">/ {recommendedCount}</span>
         </div>
         <div className="actions">
-          <a className="btn" onClick={this.handleReset}><i className="fa fa-undo"></i> Reset</a>
+          <a className="btn" onClick={this.handleReset}><i className="fa fa-undo"></i></a>
         </div>
       </div>
     );
