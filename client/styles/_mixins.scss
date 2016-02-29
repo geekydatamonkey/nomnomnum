@@ -1,0 +1,72 @@
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin container() {
+  max-width: 960 / 16 * 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0 auto;
+  position: relative;
+  @include clearfix;
+}
+
+@mixin linear-gradient($start-color, $end-color) {
+  background: linear-gradient(181deg,$start-color , $end-color );
+}
+
+@mixin animated-gradient($start-color: #38b2b4, $end-color: #d84157) {
+  background: linear-gradient(181deg, $start-color , $end-color );
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 22s ease infinite;
+  -moz-animation: AnimationName 22s ease infinite;
+  -o-animation: AnimationName 22s ease infinite;
+  animation: AnimationName 22s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:48% 0%}
+    50%{background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+@keyframes AnimationName {
+    0% { background-position:48% 0% }
+    50% {background-position:53% 100%}
+    100%{background-position:48% 0%}
+}
+
+@mixin breakpoint($point,$max: 0) {
+  @if $point == desktop {
+    @media (min-width: $desktop-begin) { @content; }
+  }
+  @else if $point == tablet {
+    @media (min-width: $tablet-begin) and (max-width: $tablet-end) { @content; }
+  }
+  @else if $point == mobile {
+    @media (max-width: $mobile-end)  { @content; }
+  }
+  @else if $point == tablet-desktop {
+    @media (min-width: $tablet-begin)  { @content; }
+  }
+  @else if $point == mobile-tablet {
+    @media (max-width: $tablet-end)  { @content; }
+  }
+  // if not a keyword $point is the minpoint and $max is a range
+  @else {
+    @media (min-width: $point) and (max-width: $max) {@content;}
+  }
+}

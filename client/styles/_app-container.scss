@@ -1,3 +1,6 @@
 .app-container {
-  border: 1px solid red;
+  height: 100%;
+  background: $blue-light;
+  display: flex;
+  flex-direction: column;
 }

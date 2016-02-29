@@ -1,0 +1,68 @@
+.counter-list {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.counter-button {
+  width: 50%;
+  position:relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsla(0,100%,0%, 0.5);
+
+  .counter-name {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 1rem;
+    margin: 0;
+  }
+  .count-container {
+    text-align: center;
+  }
+  .current-count {
+    font-size: 3em;
+    font-weight: bold;
+    color: $black;
+  }
+  .actions {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translate(-50%);
+    .btn {
+      font-size: 0.75em;
+      padding: 0.25em 0.5em;
+      border: none;
+    }
+  }
+}
+
+.counter-button__veggies {
+  background: $color-veggies;
+}
+.counter-button__fruits {
+  background: $color-fruit;
+}
+.counter-button__protein {
+  background: $color-protein;
+}
+.counter-button__carbs {
+  background: $color-carbs;
+}
+.counter-button__fats {
+  background: $color-fats;
+}
+.counter-button__sugar {
+  background: $color-sugar;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  text-transform: uppercase;
+  border: 0.1em solid $black;
+}

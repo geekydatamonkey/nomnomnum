@@ -1,4 +1,10 @@
 // resets
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+@import 'globals';
 
 // components
 @import 'app-container';
+@import 'app-bar';
+@import 'counter-list';
